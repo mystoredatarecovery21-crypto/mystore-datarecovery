@@ -40,17 +40,21 @@
                     <i class="fa-solid fa-user-shield"></i>
                 </div>
                 <h2 class="text-2xl font-extrabold text-white">لوحة تحكم MYSTORE</h2>
-                <p class="text-xs text-slate-400">3 ميدان سفنكس، العجوزة، الجيزة</p>
+                <p class="text-xs text-slate-400">3 ميدان سفنكس، العجوزة، الجيزة[cite: 1]</p>
             </div>
 
-            <form onsubmit="handleAdminLogin(event)" class="space-y-4">
+            <form onsubmit="handleAdminLogin(event)" class="space-y-4 text-xs">
                 <div>
-                    <label class="block text-xs font-bold text-slate-300 mb-1">كلمة المرور:</label>
-                    <input type="password" id="admin-pass-input" placeholder="أدخل كلمة المرور..." 
-                           class="w-full bg-slate-950 border border-slate-700 rounded-xl py-3 px-4 text-sm text-center font-bold outline-none focus:border-cyan-400 text-cyan-300" required>
-                    <p class="text-[11px] text-slate-500 mt-2 text-center">كلمة السر الافتراضية: <strong class="text-cyan-300 font-mono">admin123</strong></p>
+                    <label class="block font-bold text-slate-300 mb-1">اسم المستخدم:</label>
+                    <input type="text" id="admin-user-input" placeholder="أدخل اسم المستخدم..." 
+                           class="w-full bg-slate-950 border border-slate-700 rounded-xl py-3 px-4 text-sm font-bold outline-none focus:border-cyan-400 text-cyan-300" required>
                 </div>
-                <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-cyan-500 hover:brightness-110 text-white font-extrabold py-3.5 rounded-xl text-xs shadow-lg transition-all">
+                <div>
+                    <label class="block font-bold text-slate-300 mb-1">كلمة المرور:</label>
+                    <input type="password" id="admin-pass-input" placeholder="أدخل كلمة المرور..." 
+                           class="w-full bg-slate-950 border border-slate-700 rounded-xl py-3 px-4 text-sm font-bold outline-none focus:border-cyan-400 text-cyan-300" required>
+                </div>
+                <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-cyan-500 hover:brightness-110 text-white font-extrabold py-3.5 rounded-xl text-xs shadow-lg transition-all cursor-pointer">
                     تسجيل الدخول للوحة التحكم
                 </button>
             </form>
@@ -66,15 +70,15 @@
                         <i class="fa-solid fa-hard-drive text-white text-xl"></i>
                     </div>
                     <div>
-                        <h1 class="text-lg font-black text-white">MYSTORE ADMIN</h1>
+                        <h1 class="text-lg font-black text-white">MYSTORE ADMIN <span id="current-user-badge" class="text-xs bg-cyan-500/20 text-cyan-300 px-2 py-0.5 rounded-md mr-2"></span></h1>
                         <p class="text-[10px] text-slate-400">فرع العجوزة، الجيزة</p>
                     </div>
                 </div>
                 <div class="flex items-center gap-3">
-                    <button onclick="openNewOrderModal()" class="bg-cyan-600 hover:bg-cyan-500 text-white font-bold px-4 py-2 rounded-xl text-xs flex items-center gap-1.5 shadow">
+                    <button id="header-new-order-btn" onclick="openNewOrderModal()" class="bg-cyan-600 hover:bg-cyan-500 text-white font-bold px-4 py-2 rounded-xl text-xs flex items-center gap-1.5 shadow cursor-pointer">
                         <i class="fa-solid fa-plus"></i> طلب جديد
                     </button>
-                    <button onclick="handleAdminLogout()" class="bg-red-900/30 text-red-300 p-2.5 rounded-xl text-xs" title="خروج">
+                    <button onclick="handleAdminLogout()" class="bg-red-900/30 text-red-300 p-2.5 rounded-xl text-xs cursor-pointer" title="خروج">
                         <i class="fa-solid fa-right-from-bracket"></i>
                     </button>
                 </div>
@@ -84,18 +88,21 @@
         <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
             <!-- Tabs Navigation -->
             <div class="flex flex-wrap gap-2 border-b border-slate-800 pb-3">
-                <button onclick="switchAdminTab('orders')" id="tab-orders-btn" class="admin-tab active bg-blue-600 text-white font-bold px-5 py-2.5 rounded-xl text-xs transition-all">
-                    <i class="fa-solid fa-list-check ml-1.5"></i> جدول الطلبات والأجهزة
+                <button onclick="switchAdminTab('orders')" id="tab-orders-btn" class="admin-tab active bg-blue-600 text-white font-bold px-5 py-2.5 rounded-xl text-xs transition-all cursor-pointer">
+                    <i class="fa-solid fa-list-check ml-1.5"></i> جدول الطلبات النشطة
                 </button>
-                <button onclick="switchAdminTab('inquiries')" id="tab-inquiries-btn" class="admin-tab bg-slate-900 text-slate-400 font-bold px-5 py-2.5 rounded-xl text-xs transition-all">
-                    <i class="fa-solid fa-comments ml-1.5"></i> استفسارات العملاء
+                <button onclick="switchAdminTab('archive')" id="tab-archive-btn" class="admin-tab bg-slate-900 text-slate-400 font-bold px-5 py-2.5 rounded-xl text-xs transition-all cursor-pointer">
+                    <i class="fa-solid fa-warehouse ml-1.5"></i> مخزن السجل الشامل (الناجحة وغير الناجحة)
                 </button>
-                <button onclick="switchAdminTab('settings')" id="tab-settings-btn" class="admin-tab bg-slate-900 text-slate-400 font-bold px-5 py-2.5 rounded-xl text-xs transition-all">
-                    <i class="fa-solid fa-key ml-1.5"></i> إعدادات وتغيير كلمة المرور
+                <button onclick="switchAdminTab('inquiries')" id="tab-inquiries-btn" class="admin-tab bg-slate-900 text-slate-400 font-bold px-5 py-2.5 rounded-xl text-xs transition-all cursor-pointer">
+                    <i class="fa-solid fa-comments ml-1.5"></i> استفسارات العملاء والواتساب
+                </button>
+                <button onclick="switchAdminTab('settings')" id="tab-settings-btn" class="admin-tab bg-slate-900 text-slate-400 font-bold px-5 py-2.5 rounded-xl text-xs transition-all cursor-pointer">
+                    <i class="fa-solid fa-users-gear ml-1.5"></i> إدارة المستخدمين والأمان
                 </button>
             </div>
 
-            <!-- ORDERS TAB -->
+            <!-- ORDERS TAB (الطلبات النشطة) -->
             <div id="admin-orders-tab" class="space-y-4">
                 <div class="bg-slate-900 rounded-2xl border border-slate-800 overflow-x-auto shadow-xl">
                     <table class="w-full text-right text-xs">
@@ -115,6 +122,40 @@
                 </div>
             </div>
 
+            <!-- ARCHIVE & WAREHOUSE TAB (مخزن السجل الشامل لجميع الطلبات) -->
+            <div id="admin-archive-tab" class="hidden space-y-4">
+                <div class="bg-slate-900 rounded-2xl border border-slate-800 p-6 space-y-4 shadow-xl">
+                    <div class="flex flex-wrap justify-between items-center gap-4">
+                        <div>
+                            <h3 class="text-base font-bold text-white">مخزن وأرشيف كافة الطلبات (الناجحة وغير الناجحة)</h3>
+                            <p class="text-xs text-slate-400">سجل كامل ومؤرشف لجميع الأجهزة والعمليات التي تم إدخالها في النظام.</p>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <select id="archive-filter" onchange="renderArchive()" class="bg-slate-950 border border-slate-700 text-white px-4 py-2 rounded-xl text-xs font-bold outline-none">
+                                <option value="all">عرض الكل</option>
+                                <option value="success">الطلبات الناجحة والمكتملة</option>
+                                <option value="failed">الطلبات غير الناجحة / المتعثرة</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-right text-xs">
+                            <thead class="bg-slate-950 text-slate-400 font-bold border-b border-slate-800">
+                                <tr>
+                                    <th class="p-4">كود التتبع</th>
+                                    <th class="p-4">اسم العميل ورقم الهاتف</th>
+                                    <th class="p-4">نوع الجهاز</th>
+                                    <th class="p-4">نتيجة الاسترجاع / الحالة</th>
+                                    <th class="p-4">التكلفة والتقرير الفني</th>
+                                    <th class="p-4 text-center">الإجراء</th>
+                                </tr>
+                            </thead>
+                            <tbody id="admin-archive-table-body" class="divide-y divide-slate-800 text-slate-200"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
             <!-- INQUIRIES TAB -->
             <div id="admin-inquiries-tab" class="hidden space-y-4">
                 <div class="bg-slate-900 rounded-2xl border border-slate-800 p-6 space-y-4">
@@ -123,29 +164,77 @@
                 </div>
             </div>
 
-            <!-- SETTINGS & PASSWORD CHANGE TAB -->
+            <!-- SETTINGS & USERS MANAGEMENT TAB -->
             <div id="admin-settings-tab" class="hidden space-y-6">
-                <div class="bg-slate-900 rounded-2xl border border-slate-800 p-6 space-y-4 max-w-lg">
-                    <h3 class="text-base font-bold text-white border-b border-slate-800 pb-3">
-                        <i class="fa-solid fa-key text-cyan-400 ml-2"></i> تغيير كلمة مرور لوحة التحكم
-                    </h3>
-                    <form onsubmit="handleChangePassword(event)" class="space-y-4 text-xs">
-                        <div>
-                            <label class="block font-bold text-slate-300 mb-1">كلمة المرور الحالية:</label>
-                            <input type="password" id="pass-current" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-white outline-none" required>
-                        </div>
-                        <div>
-                            <label class="block font-bold text-slate-300 mb-1">كلمة المرور الجديدة:</label>
-                            <input type="password" id="pass-new" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-white outline-none" required>
-                        </div>
-                        <div>
-                            <label class="block font-bold text-slate-300 mb-1">تأكيد كلمة المرور الجديدة:</label>
-                            <input type="password" id="pass-confirm" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-white outline-none" required>
-                        </div>
-                        <button type="submit" class="bg-cyan-600 hover:bg-cyan-500 text-white font-bold px-6 py-3 rounded-xl shadow-lg">
-                            حفظ وتحديث كلمة المرور
-                        </button>
-                    </form>
+                <div class="grid lg:grid-cols-2 gap-6">
+                    <!-- تغيير كلمة المرور الشخصية -->
+                    <div class="bg-slate-900 rounded-2xl border border-slate-800 p-6 space-y-4">
+                        <h3 class="text-base font-bold text-white border-b border-slate-800 pb-3">
+                            <i class="fa-solid fa-key text-cyan-400 ml-2"></i> تغيير كلمة المرور الخاصة بك
+                        </h3>
+                        <form onsubmit="handleChangePassword(event)" class="space-y-4 text-xs">
+                            <div>
+                                <label class="block font-bold text-slate-300 mb-1">كلمة المرور الحالية:</label>
+                                <input type="password" id="pass-current" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-white outline-none" required>
+                            </div>
+                            <div>
+                                <label class="block font-bold text-slate-300 mb-1">كلمة المرور الجديدة:</label>
+                                <input type="password" id="pass-new" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-white outline-none" required>
+                            </div>
+                            <div>
+                                <label class="block font-bold text-slate-300 mb-1">تأكيد كلمة المرور الجديدة:</label>
+                                <input type="password" id="pass-confirm" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-white outline-none" required>
+                            </div>
+                            <button type="submit" class="bg-cyan-600 hover:bg-cyan-500 text-white font-bold px-6 py-3 rounded-xl shadow-lg cursor-pointer">
+                                حفظ وتحديث كلمة المرور
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- إضافة مستخدم جديد وصلاحياته -->
+                    <div id="admin-users-manager-card" class="bg-slate-900 rounded-2xl border border-slate-800 p-6 space-y-4">
+                        <h3 class="text-base font-bold text-white border-b border-slate-800 pb-3">
+                            <i class="fa-solid fa-user-plus text-emerald-400 ml-2"></i> إضافة مستخدم جديد وتحديد الصلاحيات
+                        </h3>
+                        <form onsubmit="handleAddNewUser(event)" class="space-y-3 text-xs">
+                            <div>
+                                <label class="block font-bold text-slate-300 mb-1">اسم المستخدم الجديد:</label>
+                                <input type="text" id="new-username" placeholder="مثال: ahmed_tech" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-white outline-none" required>
+                            </div>
+                            <div>
+                                <label class="block font-bold text-slate-300 mb-1">كلمة المرور:</label>
+                                <input type="password" id="new-userpass" placeholder="كلمة المرور للمستخدم..." class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-white outline-none" required>
+                            </div>
+                            <div>
+                                <label class="block font-bold text-slate-300 mb-1">صلاحيات المستخدم:</label>
+                                <select id="new-user-role" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-white outline-none font-bold">
+                                    <option value="full">صلاحيات كاملة (إضافة، تعديل، حذف)</option>
+                                    <option value="editor">مساعد فني (إضافة وتعديل الطلبات فقط بدون حذف)</option>
+                                    <option value="viewer">مشاهدة وفحص فقط (بدون أي تعديل)</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-6 py-3 rounded-xl shadow-lg cursor-pointer">
+                                إنشاء الحساب والصلاحيات
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- جدول المستخدمين الحاليين -->
+                <div id="users-list-card" class="bg-slate-900 rounded-2xl border border-slate-800 p-6 space-y-4">
+                    <h3 class="text-base font-bold text-white">المستخدمون المسجلون والصلاحيات</h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-right text-xs">
+                            <thead class="bg-slate-950 text-slate-400 font-bold border-b border-slate-800">
+                                <tr>
+                                    <th class="p-3">اسم المستخدم</th>
+                                    <th class="p-3">نوع الصلاحية</th>
+                                    <th class="p-3 text-center">الإجراء</th>
+                                </tr>
+                            </thead>
+                            <tbody id="users-table-body" class="divide-y divide-slate-800 text-slate-200"></tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </main>
@@ -170,21 +259,22 @@
                         <option value="inspection">قيد الفحص</option>
                         <option value="in_progress">جاري العمل</option>
                         <option value="ready">جاهز للتسليم</option>
-                        <option value="completed">مكتمل</option>
+                        <option value="completed">مكتمل (ناجح)</option>
+                        <option value="failed">تعذر الاسترجاع (غير ناجح)</option>
                     </select>
                     <input type="number" id="modal-progress" placeholder="النسبة %" class="bg-slate-950 border border-slate-700 rounded-xl p-3 text-white" required>
                     <input type="text" id="modal-cost" placeholder="التكلفة (مثال: 1200 ج.م)" class="bg-slate-950 border border-slate-700 rounded-xl p-3 text-white" required>
                 </div>
                 <textarea id="modal-tech-report" rows="2" placeholder="التقرير الفني للعميل..." class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-white"></textarea>
                 <div class="flex justify-end gap-2 pt-2">
-                    <button type="button" onclick="closeOrderModal()" class="px-4 py-2 bg-slate-800 rounded-xl">إلغاء</button>
-                    <button type="submit" class="px-6 py-2 bg-cyan-600 rounded-xl font-bold">حفظ الطلب</button>
+                    <button type="button" onclick="closeOrderModal()" class="px-4 py-2 bg-slate-800 rounded-xl cursor-pointer">إلغاء</button>
+                    <button type="submit" class="px-6 py-2 bg-cyan-600 rounded-xl font-bold cursor-pointer">حفظ الطلب</button>
                 </div>
             </form>
         </div>
     </div>
 
-    <!-- Script Logic for Realtime Database -->
+    <!-- Script Logic for Realtime Database & Users System -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getDatabase, ref, push, set, update, remove, onValue } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-database.js";
@@ -205,11 +295,27 @@
 
         let ordersData = {};
         let inquiriesData = {};
-        let adminPass = localStorage.getItem('mystore_admin_pass') || 'admin123';
+
+        let systemUsers = JSON.parse(localStorage.getItem('mystore_sys_users') || 'null');
+        if (!systemUsers || !systemUsers['admin']) {
+            systemUsers = {
+                'admin': { pass: 'admin123', role: 'full' }
+            };
+            localStorage.setItem('mystore_sys_users', JSON.stringify(systemUsers));
+        }
+
+        let currentLoggedUser = JSON.parse(localStorage.getItem('mystore_current_logged_user') || 'null');
+
+        if (currentLoggedUser && systemUsers[currentLoggedUser.username]) {
+            document.getElementById('admin-login-screen').classList.add('hidden');
+            document.getElementById('admin-main-wrapper').classList.remove('hidden');
+            applyUserPermissions();
+        }
 
         onValue(ref(db, 'orders'), (snapshot) => {
             ordersData = snapshot.val() || {};
             renderOrders();
+            renderArchive();
         });
 
         onValue(ref(db, 'inquiries'), (snapshot) => {
@@ -219,20 +325,51 @@
 
         window.handleAdminLogin = (e) => {
             e.preventDefault();
+            const username = document.getElementById('admin-user-input').value.trim();
             const pass = document.getElementById('admin-pass-input').value;
-            if (pass === adminPass) {
+
+            if (systemUsers[username] && systemUsers[username].pass === pass) {
+                currentLoggedUser = { username, role: systemUsers[username].role };
+                localStorage.setItem('mystore_current_logged_user', JSON.stringify(currentLoggedUser));
                 document.getElementById('admin-login-screen').classList.add('hidden');
                 document.getElementById('admin-main-wrapper').classList.remove('hidden');
+                applyUserPermissions();
             } else {
-                alert('كلمة المرور غير صحيحة! كلمة السر الافتراضية هي: admin123');
+                alert('اسم المستخدم أو كلمة المرور غير صحيحة!');
             }
         };
 
         window.handleAdminLogout = () => {
+            localStorage.removeItem('mystore_current_logged_user');
+            currentLoggedUser = null;
             document.getElementById('admin-main-wrapper').classList.add('hidden');
             document.getElementById('admin-login-screen').classList.remove('hidden');
+            document.getElementById('admin-user-input').value = '';
             document.getElementById('admin-pass-input').value = '';
         };
+
+        function applyUserPermissions() {
+            const badge = document.getElementById('current-user-badge');
+            const newOrderBtn = document.getElementById('header-new-order-btn');
+            const usersCard = document.getElementById('admin-users-manager-card');
+
+            let roleName = 'مدير عام';
+            if (currentLoggedUser.role === 'editor') roleName = 'مساعد فني';
+            if (currentLoggedUser.role === 'viewer') roleName = 'مشاهد فقط';
+
+            badge.innerText = `${currentLoggedUser.username} (${roleName})`;
+
+            if (currentLoggedUser.role === 'viewer') {
+                if(newOrderBtn) newOrderBtn.style.display = 'none';
+                if(usersCard) usersCard.style.display = 'none';
+            } else if (currentLoggedUser.role === 'editor') {
+                if(usersCard) usersCard.style.display = 'none';
+            } else {
+                if(newOrderBtn) newOrderBtn.style.display = 'flex';
+                if(usersCard) usersCard.style.display = 'block';
+            }
+            renderUsersTable();
+        }
 
         window.handleChangePassword = (e) => {
             e.preventDefault();
@@ -240,7 +377,7 @@
             const newP = document.getElementById('pass-new').value;
             const conf = document.getElementById('pass-confirm').value;
 
-            if (curr !== adminPass) {
+            if (!currentLoggedUser || systemUsers[currentLoggedUser.username].pass !== curr) {
                 alert('كلمة المرور الحالية غير صحيحة!');
                 return;
             }
@@ -249,20 +386,83 @@
                 return;
             }
 
-            adminPass = newP;
-            localStorage.setItem('mystore_admin_pass', newP);
+            systemUsers[currentLoggedUser.username].pass = newP;
+            localStorage.setItem('mystore_sys_users', JSON.stringify(systemUsers));
             alert('تم تغيير كلمة المرور بنجاح!');
             e.target.reset();
         };
 
+        window.handleAddNewUser = (e) => {
+            e.preventDefault();
+            if (currentLoggedUser.role !== 'full') {
+                alert('عذراً، لا تملك صلاحية إضافة مستخدمين جدد.');
+                return;
+            }
+
+            const username = document.getElementById('new-username').value.trim();
+            const pass = document.getElementById('new-userpass').value;
+            const role = document.getElementById('new-user-role').value;
+
+            if (systemUsers[username]) {
+                alert('اسم المستخدم موجود مسبقاً!');
+                return;
+            }
+
+            systemUsers[username] = { pass, role };
+            localStorage.setItem('mystore_sys_users', JSON.stringify(systemUsers));
+            alert('تم إضافة المستخدم الجديد بنجاح!');
+            e.target.reset();
+            renderUsersTable();
+        };
+
+        window.deleteSystemUser = (username) => {
+            if (username === 'admin') {
+                alert('لا يمكن حذف الآدمن الرئيسي!');
+                return;
+            }
+            if (confirm(`هل أنت متأكد من حذف المستخدم ${username}؟`)) {
+                delete systemUsers[username];
+                localStorage.setItem('mystore_sys_users', JSON.stringify(systemUsers));
+                renderUsersTable();
+            }
+        };
+
+        function renderUsersTable() {
+            const tbody = document.getElementById('users-table-body');
+            if (!tbody) return;
+            const keys = Object.keys(systemUsers);
+            tbody.innerHTML = keys.map(u => {
+                const user = systemUsers[u];
+                let rText = user.role === 'full' ? 'صلاحيات كاملة' : (user.role === 'editor' ? 'مساعد فني' : 'مشاهد فقط');
+                return `
+                    <tr class="hover:bg-slate-800/40">
+                        <td class="p-3 font-bold text-cyan-300">${u}</td>
+                        <td class="p-3 text-slate-300">${rText}</td>
+                        <td class="p-3 text-center">
+                            ${u !== 'admin' && currentLoggedUser.role === 'full' ? `<button onclick="deleteSystemUser('${u}')" class="text-red-400 p-1 rounded bg-red-950/40 hover:bg-red-900/40 cursor-pointer"><i class="fa-solid fa-trash"></i></button>` : '<span class="text-slate-600">-</span>'}
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        // عرض الطلبات النشطة فقط في الجدول الأول
         function renderOrders() {
             const tbody = document.getElementById('admin-orders-table-body');
             if (!tbody) return;
-            const keys = Object.keys(ordersData);
+            const keys = Object.keys(ordersData).filter(k => {
+                const s = ordersData[k].status;
+                return s !== 'completed' && s !== 'failed';
+            });
+
             if (keys.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="7" class="text-center p-6 text-slate-500">لا توجد طلبات حالياً</td></tr>`;
+                tbody.innerHTML = `<tr><td colspan="7" class="text-center p-6 text-slate-500">لا توجد طلبات نشطة حالياً</td></tr>`;
                 return;
             }
+
+            const canEdit = currentLoggedUser && currentLoggedUser.role !== 'viewer';
+            const canDelete = currentLoggedUser && currentLoggedUser.role === 'full';
+
             tbody.innerHTML = keys.map(key => {
                 const o = ordersData[key];
                 return `
@@ -274,14 +474,54 @@
                         <td class="p-4">${o.progress || 0}%</td>
                         <td class="p-4 font-bold text-emerald-400">${o.cost || '0 ج.م'}</td>
                         <td class="p-4 text-center space-x-1 space-x-reverse">
-                            <button onclick="printReceipt('${key}')" class="p-1.5 bg-slate-800 text-amber-300 rounded" title="طباعة"><i class="fa-solid fa-print"></i></button>
-                            <button onclick="editOrder('${key}')" class="p-1.5 bg-slate-800 text-cyan-300 rounded" title="تعديل"><i class="fa-solid fa-pen"></i></button>
-                            <button onclick="deleteOrder('${key}')" class="p-1.5 bg-red-900/30 text-red-300 rounded" title="حذف"><i class="fa-solid fa-trash"></i></button>
+                            <button onclick="printReceipt('${key}')" class="p-1.5 bg-slate-800 text-amber-300 rounded cursor-pointer" title="طباعة"><i class="fa-solid fa-print"></i></button>
+                            ${canEdit ? `<button onclick="editOrder('${key}')" class="p-1.5 bg-slate-800 text-cyan-300 rounded cursor-pointer" title="تعديل"><i class="fa-solid fa-pen"></i></button>` : ''}
+                            ${canDelete ? `<button onclick="deleteOrder('${key}')" class="p-1.5 bg-red-900/30 text-red-300 rounded cursor-pointer" title="حذف"><i class="fa-solid fa-trash"></i></button>` : ''}
                         </td>
                     </tr>
                 `;
             }).join('');
         }
+
+        // مخزن وسجل كافة الطلبات (الناجحة وغير الناجحة)
+        window.renderArchive = () => {
+            const tbody = document.getElementById('admin-archive-table-body');
+            const filterVal = document.getElementById('archive-filter') ? document.getElementById('archive-filter').value : 'all';
+            if (!tbody) return;
+
+            const keys = Object.keys(ordersData).filter(k => {
+                const s = ordersData[k].status;
+                if (filterVal === 'success') return s === 'completed';
+                if (filterVal === 'failed') return s === 'failed';
+                return true; // عرض الكل
+            });
+
+            if (keys.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="6" class="text-center p-6 text-slate-500">لا توجد طلبات في هذا السجل حالياً</td></tr>`;
+                return;
+            }
+
+            tbody.innerHTML = keys.map(key => {
+                const o = ordersData[key];
+                let statusBadge = '<span class="bg-blue-500/20 text-blue-300 px-2 py-0.5 rounded">قيد العمل</span>';
+                if (o.status === 'completed') statusBadge = '<span class="bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded font-bold"><i class="fa-solid fa-circle-check"></i> ناجحة (مكتملة)</span>';
+                if (o.status === 'failed') statusBadge = '<span class="bg-red-500/20 text-red-300 px-2 py-0.5 rounded font-bold"><i class="fa-solid fa-circle-xmark"></i> غير ناجحة (تعذر الاسترجاع)</span>';
+
+                return `
+                    <tr class="hover:bg-slate-800/40">
+                        <td class="p-4 font-mono font-bold text-cyan-300">${o.code || ''}</td>
+                        <td class="p-4">${o.clientName || ''}<br><span class="text-[10px] text-slate-400">${o.clientPhone || ''}</span></td>
+                        <td class="p-4">${o.deviceType || ''}</td>
+                        <td class="p-4">${statusBadge}</td>
+                        <td class="p-4">${o.cost || '0 ج.م'}<br><span class="text-[10px] text-slate-400">${o.techReport || ''}</span></td>
+                        <td class="p-4 text-center">
+                            <button onclick="printReceipt('${key}')" class="p-1.5 bg-slate-800 text-amber-300 rounded cursor-pointer" title="طباعة الإيصال"><i class="fa-solid fa-print"></i></button>
+                            <button onclick="editOrder('${key}')" class="p-1.5 bg-slate-800 text-cyan-300 rounded cursor-pointer mr-1" title="تعديل"><i class="fa-solid fa-pen"></i></button>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        };
 
         function renderInquiries() {
             const list = document.getElementById('admin-inquiries-list');
@@ -291,18 +531,46 @@
                 list.innerHTML = '<p class="text-slate-500 text-xs">لا توجد رسائل حالياً</p>';
                 return;
             }
+            const canDelete = currentLoggedUser && currentLoggedUser.role === 'full';
             list.innerHTML = keys.map(key => {
                 const i = inquiriesData[key];
+                const rawPhone = i.phone ? i.phone.toString().trim() : '';
+                const cleanPhone = rawPhone.replace(/\D/g, '');
+                const waLink = cleanPhone ? `https://wa.me/${cleanPhone}` : '#';
+                const isContacted = i.contacted === true;
+
                 return `
                     <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 flex justify-between items-center text-xs">
-                        <div><strong>${i.name || ''} (${i.phone || ''})</strong>: ${i.notes || ''}</div>
-                        <button onclick="deleteInquiry('${key}')" class="text-red-400"><i class="fa-solid fa-trash"></i></button>
+                        <div>
+                            <strong>${i.name || ''} (${i.phone || ''})</strong> - ${i.device || ''}: ${i.notes || ''}
+                            <div class="mt-2 flex flex-wrap items-center gap-2">
+                                <a href="${waLink}" target="_blank" rel="noopener noreferrer" class="bg-emerald-600 hover:bg-emerald-700 text-white px-3 py-1.5 rounded-lg font-bold inline-flex items-center gap-1.5 transition-all">
+                                    <i class="fa-brands fa-whatsapp text-sm"></i> مراسلة واتساب
+                                </a>
+                                <button onclick="toggleContacted('${key}', ${!isContacted})" class="${isContacted ? 'bg-emerald-800 text-white' : 'bg-slate-800 hover:bg-slate-700 text-slate-300'} px-3 py-1.5 rounded-lg font-bold inline-flex items-center gap-1.5 transition-all cursor-pointer">
+                                    <i class="fa-solid ${isContacted ? 'fa-check-double text-emerald-300' : 'fa-check'}"></i> ${isContacted ? 'تم التواصل' : 'تأكيد تم التواصل'}
+                                </button>
+                            </div>
+                        </div>
+                        ${canDelete ? `<button onclick="deleteInquiry('${key}')" class="text-red-400 p-2 cursor-pointer"><i class="fa-solid fa-trash"></i></button>` : ''}
                     </div>
                 `;
             }).join('');
         }
 
+        window.toggleContacted = async (key, status) => {
+            try {
+                await update(ref(db, `inquiries/${key}`), { contacted: status });
+            } catch (err) {
+                alert('حدث خطأ أثناء التحديث.');
+            }
+        };
+
         window.openNewOrderModal = () => {
+            if (currentLoggedUser.role === 'viewer') {
+                alert('حسابك لا يمتلك صلاحية إضافة طلبات.');
+                return;
+            }
             document.getElementById('modal-order-key').value = '';
             document.getElementById('modal-order-code').value = 'MY-2026-' + Math.floor(100 + Math.random() * 900);
             document.getElementById('modal-client-name').value = '';
@@ -359,12 +627,20 @@
         };
 
         window.deleteOrder = (key) => {
+            if (currentLoggedUser.role !== 'full') {
+                alert('ليس لديك صلاحية لحذف الطلبات.');
+                return;
+            }
             if (confirm('هل أنت متأكد من حذف هذا الطلب؟')) {
                 remove(ref(db, 'orders/' + key));
             }
         };
 
         window.deleteInquiry = (key) => {
+            if (currentLoggedUser.role !== 'full') {
+                alert('ليس لديك صلاحية لحذف الاستفسارات.');
+                return;
+            }
             remove(ref(db, 'inquiries/' + key));
         };
 
@@ -383,6 +659,7 @@
                     <p><strong>الجهاز:</strong> ${o.deviceType}</p>
                     <p><strong>التكلفة المحددة:</strong> ${o.cost}</p>
                     <p><strong>الحالة:</strong> ${o.status}</p>
+                    <p><strong>التقرير الفني:</strong> ${o.techReport}</p>
                 </body></html>
             `);
             w.document.close();
@@ -392,10 +669,12 @@
         window.switchAdminTab = (tab) => {
             document.querySelectorAll('.admin-tab').forEach(b => { b.classList.remove('bg-blue-600', 'text-white'); b.classList.add('bg-slate-900', 'text-slate-400'); });
             document.getElementById('admin-orders-tab').classList.add('hidden');
+            document.getElementById('admin-archive-tab').classList.add('hidden');
             document.getElementById('admin-inquiries-tab').classList.add('hidden');
             document.getElementById('admin-settings-tab').classList.add('hidden');
 
             if (tab === 'orders') { document.getElementById('tab-orders-btn').classList.add('bg-blue-600', 'text-white'); document.getElementById('admin-orders-tab').classList.remove('hidden'); }
+            if (tab === 'archive') { document.getElementById('tab-archive-btn').classList.add('bg-blue-600', 'text-white'); document.getElementById('admin-archive-tab').classList.remove('hidden'); renderArchive(); }
             if (tab === 'inquiries') { document.getElementById('tab-inquiries-btn').classList.add('bg-blue-600', 'text-white'); document.getElementById('admin-inquiries-tab').classList.remove('hidden'); }
             if (tab === 'settings') { document.getElementById('tab-settings-btn').classList.add('bg-blue-600', 'text-white'); document.getElementById('admin-settings-tab').classList.remove('hidden'); }
         };
