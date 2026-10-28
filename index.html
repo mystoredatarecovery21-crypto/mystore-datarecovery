@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="ar" dir="rtl" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
@@ -30,11 +29,20 @@
             }
         }
     </script>
+    <style>
+        /* خلفية اللوجو لكل الصفحة مع طبقة تغطية داكنة لضمان وضوح النصوص */
+        .page-bg-logo {
+            background-image: linear-gradient(to bottom, rgba(15, 23, 42, 0.92), rgba(15, 23, 42, 0.95)), url('612020931_1260317339451455_5631367621740194848_n.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+    </style>
 </head>
-<body class="antialiased selection:bg-[#06b6d4] selection:text-white bg-slate-50 text-slate-900 overflow-x-hidden font-['Cairo',sans-serif]">
+<body class="antialiased selection:bg-[#06b6d4] selection:text-white page-bg-logo text-slate-100 overflow-x-hidden font-['Cairo',sans-serif]">
 
     <!-- Top Bar -->
-    <header class="bg-[#0f172a] text-slate-300 text-xs sm:text-sm py-2 px-4 border-b border-slate-800 relative z-50">
+    <header class="bg-[#0f172a]/90 backdrop-blur-md text-slate-300 text-xs sm:text-sm py-2 px-4 border-b border-slate-800 relative z-50">
         <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
             <div class="flex items-center space-x-4 space-x-reverse flex-wrap gap-y-1">
                 <a href="tel:01067008774" class="flex items-center gap-1.5 hover:text-[#00d2ff] transition-colors">
@@ -54,8 +62,8 @@
             </div>
             
             <div class="flex items-center gap-3 text-slate-400 text-sm">
-                <a href="https://www.tiktok.com/@mystoredatarecovery" target="_blank" class="hover:text-cyan-400"><i class="fa-brands fa-tiktok"></i></a>
-                <a href="https://www.instagram.com/mystore_datarecovery" target="_blank" class="hover:text-pink-400"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@mystoredatarecovery.com" target="_blank" class="hover:text-cyan-400"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="https://www.instagram.com/mystore_datarecovery.com" target="_blank" class="hover:text-pink-400"><i class="fa-brands fa-instagram"></i></a>
                 <a href="https://www.facebook.com/share/1LhyAHKyLn/" target="_blank" class="hover:text-blue-400"><i class="fa-brands fa-facebook-f"></i></a>
                 <a href="https://tr.ee/lIOP_-r36M" target="_blank" class="hover:text-green-400"><i class="fa-solid fa-tree"></i></a>
             </div>
@@ -63,16 +71,15 @@
     </header>
 
     <!-- Navigation Bar -->
-    <nav class="sticky top-0 bg-[#0f172a]/95 backdrop-blur-md border-b border-slate-800 z-40 text-white shadow-xl">
+    <nav class="sticky top-0 bg-[#0f172a]/90 backdrop-blur-md border-b border-slate-800 z-40 text-white shadow-xl">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <a href="#" class="flex items-center gap-3 group">
-                    <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-blue-700 to-cyan-500 border border-cyan-400/30 flex items-center justify-center shadow-lg">
-                        <i class="fa-solid fa-hard-drive text-2xl text-white"></i>
+                    <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-cyan-400/50 shadow-lg shrink-0 relative bg-cover bg-center" style="background-image: url('612020931_1260317339451455_5631367621740194848_n.jpg');">
                     </div>
                     <div class="flex flex-col">
                         <span class="text-xl sm:text-2xl font-black tracking-tight text-white flex items-center gap-1">
-                            MYSTORE <span class="text-[#00d2ff]">DATARECOVERY</span>
+                            MYSTORE <span class="text-[#00d2ff]">DATARECOVERY.COM</span>
                         </span>
                         <span class="text-[10px] sm:text-xs text-slate-400">M.Y-STORE DATA RECOVERY EGYPT</span>
                     </div>
@@ -89,7 +96,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="hero" class="relative bg-[#0f172a] text-white py-16 lg:py-24 border-b border-slate-800">
+    <section id="hero" class="relative text-white py-16 lg:py-24 border-b border-slate-800/80">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid lg:grid-cols-12 gap-12 items-center">
                 <div class="lg:col-span-7 space-y-8 text-center lg:text-right">
@@ -125,33 +132,33 @@
     </section>
 
     <!-- SECTION: Tracker with Cost Display -->
-    <section id="track" class="py-16 bg-slate-100">
+    <section id="track" class="py-16">
         <div class="max-w-4xl mx-auto px-4">
             <div class="text-center space-y-3 mb-10">
-                <span class="bg-blue-100 text-techblue text-xs font-bold px-3 py-1 rounded-full">نظام التتبع المباشر</span>
-                <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900">تتبع حالة جهازك والتكلفة بالمختبر الآن</h2>
-                <p class="text-slate-600 text-sm">أدخل كود التتبع الخاص بك (مثال: MY-2026-101)</p>
+                <span class="bg-blue-500/20 text-cyan-300 text-xs font-bold px-3 py-1 rounded-full border border-cyan-500/30">نظام التتبع المباشر</span>
+                <h2 class="text-2xl sm:text-4xl font-extrabold text-white">تتبع حالة جهازك والتكلفة بالمختبر الآن</h2>
+                <p class="text-slate-300 text-sm">أدخل كود التتبع الخاص بك (مثال: MY-2026-101)</p>
             </div>
-            <div class="bg-white p-6 sm:p-8 rounded-3xl shadow-xl border border-slate-200">
+            <div class="bg-slate-900/90 p-6 sm:p-8 rounded-3xl shadow-xl border border-slate-700 backdrop-blur-md">
                 <form id="track-form" class="space-y-4">
                     <div class="flex flex-col sm:flex-row gap-3">
-                        <input type="text" id="public-track-code" placeholder="أدخل كود التتبع (مثال: MY-2026-101)" class="w-full px-4 py-3.5 bg-white border border-slate-300 rounded-xl font-bold text-sm outline-none focus:ring-2 focus:ring-techblue text-slate-800" required>
-                        <button type="submit" class="bg-techblue hover:bg-slate-900 text-white font-bold px-8 py-3.5 rounded-xl shadow-md whitespace-nowrap transition-all">استعلام مباشر</button>
+                        <input type="text" id="public-track-code" placeholder="أدخل كود التتبع (مثال: MY-2026-101)" class="w-full px-4 py-3.5 bg-slate-950 border border-slate-700 rounded-xl font-bold text-sm outline-none focus:ring-2 focus:ring-techblue text-white placeholder-slate-500" required>
+                        <button type="submit" class="bg-techblue hover:bg-blue-600 text-white font-bold px-8 py-3.5 rounded-xl shadow-md whitespace-nowrap transition-all">استعلام مباشر</button>
                     </div>
                 </form>
-                <div id="public-track-result" class="hidden mt-6 pt-6 border-t border-slate-200"></div>
+                <div id="public-track-result" class="hidden mt-6 pt-6 border-t border-slate-800"></div>
             </div>
         </div>
     </section>
 
     <!-- SECTION: FAQ (الأسئلة الشائعة الكاملة) -->
-    <section id="faq" class="py-20 bg-slate-900 text-slate-100 border-t border-slate-800">
+    <section id="faq" class="py-20 border-t border-slate-800/80">
         <div class="max-w-4xl mx-auto px-4 space-y-12">
             
             <div class="space-y-4 text-center border-b border-slate-800 pb-8">
                 <span class="bg-cyan-500/10 text-cyan-400 text-xs font-bold px-3.5 py-1.5 rounded-full border border-cyan-500/20">أساسيات استعادة البيانات</span>
                 <h2 class="text-2xl sm:text-4xl font-black text-white">أسئلة بنسمعها كتير عن ”استعادة البيانات“</h2>
-                <p class="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-2xl mx-auto">
+                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-2xl mx-auto">
                     مبدئيا، معظم عملائنا عند حدوث مشكلة بالهارد ديسك أو الفلاش أو كارت الميمورى أو الموبايل، يسألون مجموعة من الأسئلة الشائعة لأن موضوع استعادة البيانات جديد على معظم المستخدمين. إليك الإجابات الكاملة والتفصيلية:
                 </p>
             </div>
@@ -159,7 +166,7 @@
             <div class="space-y-6 text-xs sm:text-sm leading-relaxed">
 
                 <!-- Q1 -->
-                <div class="bg-slate-950 border border-slate-800 p-6 rounded-3xl space-y-4 shadow-lg">
+                <div class="bg-slate-950/80 backdrop-blur-md border border-slate-800 p-6 rounded-3xl space-y-4 shadow-lg">
                     <h3 class="text-base sm:text-lg font-bold text-cyan-300 flex items-center gap-2">
                         <span class="w-7 h-7 rounded-lg bg-cyan-500/20 flex items-center justify-center text-xs">1</span>
                         1- كم تبلغ تكلفة استعادة البيانات؟
@@ -167,19 +174,19 @@
                     <div class="space-y-3 text-slate-300">
                         <p class="font-bold text-white">هناك نوعان لحساب تكلفة استعادة البيانات:</p>
                         
-                        <div class="bg-slate-900 p-4 rounded-xl border border-slate-800 space-y-2">
+                        <div class="bg-slate-900/90 p-4 rounded-xl border border-slate-800 space-y-2">
                             <strong class="text-cyan-400 block">النوع الأول:</strong>
                             <p>الحد الأدنى لتكلفة استعادة البيانات هو 1100 جنيه، في حالة ما إذا كان الهارد أو الفلاشة أو الكارت سليم ويعمل، وتم حذف البيانات أو عمل فورمات سريع، أو وجود بادات (قطاعات تالفة) تعيق القراءة. التكلفة تبدأ من 1100 جنيه ولا يمكن تحديدها نهائياً إلا بعد الفحص، وتقدر حسب الوقت المستهلك (بحد أدنى 1100 جنيه لليوم).</p>
                             <p><strong>استرداد تسجيلات DVR (هارد أجهزة الكاميرات):</strong> تبدأ من 3500 جنيه وتدفع حسب الوقت المستهلك (3500 جنيه لليوم). وفي حال إعادة التسجيل فوق الداتا القديمة، يدفع العميل نصف الحد الأدنى ولا تسترد لعدم إمكانية استرجاع ما تم الكتابة فوقه.</p>
                             <p><strong>استرجاع SSD (بأنواعه SATA, M2, NVME):</strong> الذي لا يتعرف عليه الجهاز، تبدأ من 3500 جنيه + تكلفة قطع الغيار إن احتج الأمر. وكذلك حالات الـ Chip Off وقراءة شيبات الناند.</p>
                         </div>
 
-                        <div class="bg-slate-900 p-4 rounded-xl border border-slate-800 space-y-2">
+                        <div class="bg-slate-900/90 p-4 rounded-xl border border-slate-800 space-y-2">
                             <strong class="text-cyan-400 block">النوع الثاني (حالات تلف الهدود):</strong>
                             <p>تحدث بسبب السقوط أو كثرة الإغلاق المفاجئ أو فصل التيار الكهربائي (سماع أصوات غريبة أو كليك). الحد الأدنى للتكلفة هو <strong>3500 جنيه + توفير قطع غيار (دونور) + تكلفة الوقت المستخدم (1100 جنيه لليوم)</strong>.</p>
                         </div>
 
-                        <div class="bg-slate-900 p-4 rounded-xl border border-slate-800 space-y-2">
+                        <div class="bg-slate-900/90 p-4 rounded-xl border border-slate-800 space-y-2">
                             <strong class="text-amber-400 block">ما هو الدونور (Donor)؟</strong>
                             <p>هو هارد مطابق تماماً لهارد العميل، نأخذ منه رؤوس القراءة (الهدود) للهارد المريض. يستخدم كقطع غيار وليس لإصلاح الهارد، وبمجرد نقله يعتبر الدونور تالفاً سواء نجحت العملية أم لا.</p>
                         </div>
@@ -187,7 +194,7 @@
                 </div>
 
                 <!-- Q2 -->
-                <div class="bg-slate-950 border border-slate-800 p-6 rounded-3xl space-y-3 shadow-lg">
+                <div class="bg-slate-950/80 backdrop-blur-md border border-slate-800 p-6 rounded-3xl space-y-3 shadow-lg">
                     <h3 class="text-base sm:text-lg font-bold text-cyan-300 flex items-center gap-2">
                         <span class="w-7 h-7 rounded-lg bg-cyan-500/20 flex items-center justify-center text-xs">2</span>
                         2- ما سبب ارتفاع تكلفة استعادة الملفات؟
@@ -201,7 +208,7 @@
                 </div>
 
                 <!-- Q3 -->
-                <div class="bg-slate-950 border border-slate-800 p-6 rounded-3xl space-y-3 shadow-lg">
+                <div class="bg-slate-950/80 backdrop-blur-md border border-slate-800 p-6 rounded-3xl space-y-3 shadow-lg">
                     <h3 class="text-base sm:text-lg font-bold text-cyan-300 flex items-center gap-2">
                         <span class="w-7 h-7 rounded-lg bg-cyan-500/20 flex items-center justify-center text-xs">3</span>
                         3- ما هو الحد الأقصى لتكلفة استعادة البيانات؟
@@ -210,7 +217,7 @@
                 </div>
 
                 <!-- Q4 -->
-                <div class="bg-slate-950 border border-slate-800 p-6 rounded-3xl space-y-3 shadow-lg">
+                <div class="bg-slate-950/80 backdrop-blur-md border border-slate-800 p-6 rounded-3xl space-y-3 shadow-lg">
                     <h3 class="text-base sm:text-lg font-bold text-cyan-300 flex items-center gap-2">
                         <span class="w-7 h-7 rounded-lg bg-cyan-500/20 flex items-center justify-center text-xs">4</span>
                         4- ما هي تكلفة أو رسوم الفحص؟
@@ -219,7 +226,7 @@
                 </div>
 
                 <!-- Q5 -->
-                <div class="bg-slate-950 border border-slate-800 p-6 rounded-3xl space-y-3 shadow-lg">
+                <div class="bg-slate-950/80 backdrop-blur-md border border-slate-800 p-6 rounded-3xl space-y-3 shadow-lg">
                     <h3 class="text-base sm:text-lg font-bold text-cyan-300 flex items-center gap-2">
                         <span class="w-7 h-7 rounded-lg bg-cyan-500/20 flex items-center justify-center text-xs">5</span>
                         5- مكانكم بعيد جداً عني، فكيف يمكنني التعامل معكم؟
@@ -233,7 +240,7 @@
                 </div>
 
                 <!-- Q6 & Q7 -->
-                <div class="bg-slate-950 border border-slate-800 p-6 rounded-3xl space-y-3 shadow-lg">
+                <div class="bg-slate-950/80 backdrop-blur-md border border-slate-800 p-6 rounded-3xl space-y-3 shadow-lg">
                     <h3 class="text-base sm:text-lg font-bold text-cyan-300 flex items-center gap-2">
                         <span class="w-7 h-7 rounded-lg bg-cyan-500/20 flex items-center justify-center text-xs">6-7</span>
                         6 & 7. الأمان والدفع واستلام الملفات
@@ -242,7 +249,7 @@
                 </div>
 
                 <!-- Q8 to Q13 -->
-                <div class="bg-slate-950 border border-slate-800 p-6 rounded-3xl space-y-4 shadow-lg">
+                <div class="bg-slate-950/80 backdrop-blur-md border border-slate-800 p-6 rounded-3xl space-y-4 shadow-lg">
                     <h3 class="text-base sm:text-lg font-bold text-cyan-300 flex items-center gap-2">
                         <span class="w-7 h-7 rounded-lg bg-cyan-500/20 flex items-center justify-center text-xs">8-13</span>
                         8 إلى 13. إصلاح الهارد، البرامج، الخصوصية، وفك الهارد مسبقاً
@@ -262,102 +269,102 @@
     </section>
 
     <!-- SECTION: Contact & Branch Info -->
-    <section id="contact" class="py-20 bg-slate-100 border-t border-slate-200">
+    <section id="contact" class="py-20 border-t border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-12 gap-10 items-start">
                 
                 <!-- معلومات الفرع ووسائل الاتصال -->
                 <div class="lg:col-span-5 space-y-6">
                     <div class="space-y-2">
-                        <span class="bg-blue-100 text-techblue text-xs font-bold px-3 py-1 rounded-full">تواصل معنا والفرع الرئيسي</span>
-                        <h2 class="text-3xl font-extrabold text-slate-900">MYSTORE DATARECOVERY EGYPT</h2>
-                        <p class="text-slate-600 text-sm">يشرفنا استقبال أجهزتكم وتقديم الفحص الفني المبدئي بمقرنا الرئيسي في الجيزة.</p>
+                        <span class="bg-blue-500/20 text-cyan-300 text-xs font-bold px-3 py-1 rounded-full border border-cyan-500/30">تواصل معنا والفرع الرئيسي</span>
+                        <h2 class="text-3xl font-extrabold text-white">MYSTORE DATARECOVERY.COM</h2>
+                        <p class="text-slate-300 text-sm">يشرفنا استقبال أجهزتكم وتقديم الفحص الفني المبدئي بمقرنا الرئيسي في الجيزة.</p>
                     </div>
 
                     <div class="space-y-4 text-xs">
-                        <div class="bg-white p-5 rounded-2xl border border-slate-200 flex items-start gap-4 shadow-sm">
-                            <div class="w-10 h-10 rounded-xl bg-blue-50 text-techblue flex items-center justify-center text-lg shrink-0">
+                        <div class="bg-slate-900/90 backdrop-blur-md p-5 rounded-2xl border border-slate-800 flex items-start gap-4 shadow-sm">
+                            <div class="w-10 h-10 rounded-xl bg-blue-500/20 text-cyan-400 flex items-center justify-center text-lg shrink-0 border border-blue-500/30">
                                 <i class="fa-solid fa-location-dot"></i>
                             </div>
                             <div>
-                                <h4 class="font-bold text-slate-900 text-sm mb-1">عنوان الفرع الرئيسي:</h4>
-                                <p class="text-slate-800 font-semibold leading-relaxed">3 ميدان سفنكس، الحويشية، العجوزة، محافظة الجيزة</p>
-                                <p class="text-slate-500 text-[11px] mt-0.5" dir="ltr">3 Sphinx Square, Al Huwaiteyah, Agouza, Giza</p>
+                                <h4 class="font-bold text-white text-sm mb-1">عنوان الفرع الرئيسي:</h4>
+                                <p class="text-slate-300 font-semibold leading-relaxed">3 ميدان سفنكس، الحويشية، العجوزة، محافظة الجيزة</p>
+                                <p class="text-slate-400 text-[11px] mt-0.5" dir="ltr">3 Sphinx Square, Al Huwaiteyah, Agouza, Giza</p>
                             </div>
                         </div>
 
-                        <div class="bg-white p-5 rounded-2xl border border-slate-200 flex items-start gap-4 shadow-sm">
-                            <div class="w-10 h-10 rounded-xl bg-green-50 text-green-600 flex items-center justify-center text-lg shrink-0">
+                        <div class="bg-slate-900/90 backdrop-blur-md p-5 rounded-2xl border border-slate-800 flex items-start gap-4 shadow-sm">
+                            <div class="w-10 h-10 rounded-xl bg-green-500/20 text-green-400 flex items-center justify-center text-lg shrink-0 border border-green-500/30">
                                 <i class="fa-solid fa-phone"></i>
                             </div>
                             <div>
-                                <h4 class="font-bold text-slate-900 text-sm mb-1">الهاتف والاتصال المباشر:</h4>
-                                <a href="tel:01067008774" class="text-slate-800 font-bold hover:text-techblue dir-ltr block text-sm">01067008774</a>
+                                <h4 class="font-bold text-white text-sm mb-1">الهاتف والاتصال المباشر:</h4>
+                                <a href="tel:01067008774" class="text-slate-300 font-bold hover:text-cyan-400 dir-ltr block text-sm">01067008774</a>
                             </div>
                         </div>
 
-                        <div class="bg-white p-5 rounded-2xl border border-slate-200 flex items-start gap-4 shadow-sm">
-                            <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-lg shrink-0">
+                        <div class="bg-slate-900/90 backdrop-blur-md p-5 rounded-2xl border border-slate-800 flex items-start gap-4 shadow-sm">
+                            <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-lg shrink-0 border border-emerald-500/30">
                                 <i class="fa-brands fa-whatsapp"></i>
                             </div>
                             <div>
-                                <h4 class="font-bold text-slate-900 text-sm mb-1">الواتساب الفوري:</h4>
-                                <a href="https://wa.me/201067008774" target="_blank" class="text-emerald-600 font-bold hover:underline dir-ltr block text-sm">wa.me/201067008774</a>
+                                <h4 class="font-bold text-white text-sm mb-1">الواتساب الفوري:</h4>
+                                <a href="https://wa.me/201067008774" target="_blank" class="text-emerald-400 font-bold hover:underline dir-ltr block text-sm">wa.me/201067008774</a>
                             </div>
                         </div>
 
-                        <div class="bg-white p-5 rounded-2xl border border-slate-200 flex items-start gap-4 shadow-sm">
-                            <div class="w-10 h-10 rounded-xl bg-cyan-50 text-cyan-600 flex items-center justify-center text-lg shrink-0">
+                        <div class="bg-slate-900/90 backdrop-blur-md p-5 rounded-2xl border border-slate-800 flex items-start gap-4 shadow-sm">
+                            <div class="w-10 h-10 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center text-lg shrink-0 border border-cyan-500/30">
                                 <i class="fa-solid fa-tree"></i>
                             </div>
                             <div>
-                                <h4 class="font-bold text-slate-900 text-sm mb-1">رابط الشجرة الموحد (Linktree):</h4>
-                                <a href="https://tr.ee/lIOP_-r36M" target="_blank" class="text-cyan-600 font-bold hover:underline dir-ltr block text-sm">tr.ee/lIOP_-r36M</a>
+                                <h4 class="font-bold text-white text-sm mb-1">رابط الشجرة الموحد (Linktree):</h4>
+                                <a href="https://tr.ee/lIOP_-r36M" target="_blank" class="text-cyan-400 font-bold hover:underline dir-ltr block text-sm">tr.ee/lIOP_-r36M</a>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- نموذج إرسال استفسار أو طلب فحص جديد -->
-                <div class="lg:col-span-7 bg-white/95 backdrop-blur-md p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-xl">
-                    <h3 class="text-xl font-extrabold text-slate-900 mb-2">أرسل طلب فحص أو استفسار جديد</h3>
-                    <p class="text-xs text-slate-600 mb-6">سيتم حفظ طلبك فوراً ومتابعته من قبل فريق المهندسين بالمختبر</p>
+                <div class="lg:col-span-7 bg-slate-900/90 backdrop-blur-md p-6 sm:p-8 rounded-3xl border border-slate-700 shadow-xl">
+                    <h3 class="text-xl font-extrabold text-white mb-2">أرسل طلب فحص أو استفسار جديد</h3>
+                    <p class="text-xs text-slate-300 mb-6">سيتم حفظ طلبك فوراً ومتابعته من قبل فريق المهندسين بالمختبر</p>
 
                     <form id="inquiry-form" class="space-y-4">
                         <div class="grid sm:grid-cols-2 gap-4">
                             <div>
-                                <label class="block text-xs font-bold text-slate-700 mb-1">الاسم بالكامل:</label>
-                                <input type="text" id="inq-name" placeholder="مثال: محمد أحمد" class="w-full bg-white border border-slate-300 rounded-xl p-3 text-xs focus:ring-2 focus:ring-techblue outline-none text-slate-800" required>
+                                <label class="block text-xs font-bold text-slate-300 mb-1">الاسم بالكامل:</label>
+                                <input type="text" id="inq-name" placeholder="مثال: محمد أحمد" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-xs focus:ring-2 focus:ring-techblue outline-none text-white placeholder-slate-500" required>
                             </div>
                             <div>
-                                <label class="block text-xs font-bold text-slate-700 mb-1">رقم الهاتف / الواتساب:</label>
-                                <input type="tel" id="inq-phone" placeholder="01067008774" class="w-full bg-white border border-slate-300 rounded-xl p-3 text-xs focus:ring-2 focus:ring-techblue outline-none text-slate-800" required>
+                                <label class="block text-xs font-bold text-slate-300 mb-1">رقم الهاتف / الواتساب:</label>
+                                <input type="tel" id="inq-phone" placeholder="01067008774" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-xs focus:ring-2 focus:ring-techblue outline-none text-white placeholder-slate-500" required>
                             </div>
                         </div>
 
                         <div class="grid sm:grid-cols-2 gap-4">
                             <div>
-                                <label class="block text-xs font-bold text-slate-700 mb-1">نوع القطعة التالفة:</label>
-                                <select id="inq-device" class="w-full bg-white border border-slate-300 rounded-xl p-3 text-xs focus:ring-2 focus:ring-techblue outline-none text-slate-800">
-                                    <option>هارد HDD خارجي / داخلي</option>
-                                    <option>وحدة SSD / NVMe</option>
-                                    <option>فلاشة / كارت ميموري</option>
-                                    <option>سيرفر RAID / NAS</option>
-                                    <option>جهاز CCTV DVR كاميرات</option>
+                                <label class="block text-xs font-bold text-slate-300 mb-1">نوع القطعة التالفة:</label>
+                                <select id="inq-device" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-xs focus:ring-2 focus:ring-techblue outline-none text-white">
+                                    <option class="bg-slate-900">هارد HDD خارجي / داخلي</option>
+                                    <option class="bg-slate-900">وحدة SSD / NVMe</option>
+                                    <option class="bg-slate-900">فلاشة / كارت ميموري</option>
+                                    <option class="bg-slate-900">سيرفر RAID / NAS</option>
+                                    <option class="bg-slate-900">جهاز CCTV DVR كاميرات</option>
                                 </select>
                             </div>
                             <div>
-                                <label class="block text-xs font-bold text-slate-700 mb-1">المحافظة:</label>
-                                <input type="text" id="inq-gov" placeholder="الجيزة، القاهرة، الإسكندرية..." class="w-full bg-white border border-slate-300 rounded-xl p-3 text-xs focus:ring-2 focus:ring-techblue outline-none text-slate-800">
+                                <label class="block text-xs font-bold text-slate-300 mb-1">المحافظة:</label>
+                                <input type="text" id="inq-gov" placeholder="الجيزة، القاهرة، الإسكندرية..." class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-xs focus:ring-2 focus:ring-techblue outline-none text-white placeholder-slate-500">
                             </div>
                         </div>
 
                         <div>
-                            <label class="block text-xs font-bold text-slate-700 mb-1">وصف المشكلة والملفات المطلوبة:</label>
-                            <textarea id="inq-notes" rows="3" placeholder="تفاصيل العطل مثلاً: الهارد يكتك، أصل الملفات صور وفيديوهات..." class="w-full bg-white border border-slate-300 rounded-xl p-3 text-xs focus:ring-2 focus:ring-techblue outline-none text-slate-800" required></textarea>
+                            <label class="block text-xs font-bold text-slate-300 mb-1">وصف المشكلة والملفات المطلوبة:</label>
+                            <textarea id="inq-notes" rows="3" placeholder="تفاصيل العطل مثلاً: الهارد يكتك، أصل الملفات صور وفيديوهات..." class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-xs focus:ring-2 focus:ring-techblue outline-none text-white placeholder-slate-500" required></textarea>
                         </div>
 
-                        <button type="submit" class="w-full bg-techblue hover:bg-slate-900 text-white font-bold py-3.5 rounded-xl shadow-lg transition-all text-xs sm:text-sm flex items-center justify-center gap-2">
+                        <button type="submit" class="w-full bg-techblue hover:bg-blue-600 text-white font-bold py-3.5 rounded-xl shadow-lg transition-all text-xs sm:text-sm flex items-center justify-center gap-2">
                             <i class="fa-solid fa-paper-plane"></i>
                             <span>إرسال طلب الاستفسار المباشر</span>
                         </button>
@@ -369,10 +376,10 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-[#0f172a] text-slate-400 text-xs py-10 border-t border-slate-800">
+    <footer class="bg-[#0f172a]/95 text-slate-400 text-xs py-10 border-t border-slate-800">
         <div class="max-w-7xl mx-auto px-4 text-center space-y-3">
             <p>3 ميدان سفنكس، الحويشية، العجوزة، محافظة الجيزة | هاتف: 01067008774</p>
-            <p>© 2026 MYSTORE DATARECOVERY EGYPT. جميع الحقوق محفوظة.</p>
+            <p>© 2026 MYSTORE DATARECOVERY.COM. جميع الحقوق محفوظة.</p>
         </div>
     </footer>
 
